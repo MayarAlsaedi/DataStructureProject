@@ -68,23 +68,23 @@ public class BinaryTreeP<E> {
     }
 
     // in-order traversal
-    private void InOrdertraversal(int index) {
+    public void InOrdertraversal(int index) {
         if(index >= size || tree[index]== null) return;
         InOrdertraversal(2* index +1);
-        System.out.println(tree[index]+ " ");
+        System.out.print(tree[index]+ " ");
         InOrdertraversal(2* index +2);
     }
     
     // post-order traversal
-    private void PostOrdertraversal(int index) {
+    public void PostOrdertraversal(int index) {
 	if (index >= size || tree[index] == null) return; 
        PostOrdertraversal(2 * index + 1); 
        PostOrdertraversal(2 * index + 2);
-       System.out.println(tree[index]+ " ");
+       System.out.print(tree[index]+ " ");
     }
     
     // pre-order traversal
-    private void PreOrdertraversal(int index) {
+    public void PreOrdertraversal(int index) {
        if (index >= size || tree[index] == null) return;
        System.out.println(tree[index]+ " "); 
        PreOrdertraversal(2 * index + 1); 
