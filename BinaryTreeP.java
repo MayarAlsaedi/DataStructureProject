@@ -4,7 +4,6 @@
  */
 package binarytreep;
 import java.util.Arrays;
-
 /**
  *
  * @author mayaralsaedi
@@ -68,7 +67,7 @@ public class BinaryTreeP<E> {
         return tree[rightIndex];
     }
 
-// in-order traversal
+    // in-order traversal
     private void InOrdertraversal(int index) {
         if(index >= size || tree[index]== null) return;
         InOrdertraversal(2* index +1);
@@ -90,28 +89,36 @@ public class BinaryTreeP<E> {
        System.out.println(tree[index]+ " "); 
        PreOrdertraversal(2 * index + 1); 
        PreOrdertraversal(2 * index + 2);
+    }
 
-// Method to resize the tree when capacity is exceeded
+    // Method to dynamically resize the array when the tree exceeds its capacity
     private void resize() {
-        int newCapacity = capacity * 2;  // Double the capacity
-        tree = Arrays.copyOf(tree, newCapacity);  // Copy elements to a new larger array
-        capacity = newCapacity;  // Update the capacity
-    }
+        int newCapacity = capacity * 2; // Double the capacity
+        E[] newTree = (E[]) new Object[newCapacity]; // Create a new array
 
-    // Method to safely insert an element into the tree
-    public void insert(E value) {
-        if (isFull()) {
-            resize(); // Resize the array if full
+        // Copy elements from the old array to the new array
+        for (int i = 0; i < size; i++) {
+            newTree[i] = tree[i];
         }
-        tree[size++] = value; // Add the value at the next available index
+
+        tree = newTree; // Update the tree reference
+        capacity = newCapacity; // Update the capacity
     }
 
-    // Method to safely get an element with bounds checking
-    public E getElement(int index) {
+    // Method to insert a new element into the tree
+    public void insert(E element) {
+        if (isFull()) {
+            resize(); // Resize the array if the tree is full
+        }
+        tree[size] = element; // Insert the new element
+        size++; // Increment the size
+    }
+
+    // Method to safely access an element at a specific index
+    public E safeAccess(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Invalid index: " + index);
         }
         return tree[index];
     }
 }
-
