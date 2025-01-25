@@ -39,5 +39,31 @@ public class BinaryTreeP<E> {
     // Method to check if the tree is full
     public boolean isFull() {
         return size == capacity;
+    } 
+    
+    // Method to get the parent of the node 
+    public E getParent(int i) {
+      if (i <= 0 || i >= size) {
+          return null; // Root node or invalid index (out of bounds) }
+          return tree[(i - 1) / 2]; // Parent node is at index (i - 1) / 2 } 
+
+
+    // Method to get the left child of the node at index i
+    public E getLeftChild(int i) {
+        int leftIndex = 2 * i + 1;
+        if (leftIndex >= size) {
+            return null; // No left child exists
+        }
+        return tree[leftIndex];
+    }
+
+    // Method to get the right child of the node at index i
+    public E getRightChild(int i) {
+        int rightIndex = 2 * i + 2;
+        if (rightIndex >= size) {
+            return null; // No right child exists
+        }
+        return tree[rightIndex];
     }
 }
+
