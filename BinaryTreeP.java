@@ -44,9 +44,10 @@ public class BinaryTreeP<E> {
     // Method to get the parent of the node 
     public E getParent(int i) {
       if (i <= 0 || i >= size) {
-          return null; // Root node or invalid index (out of bounds) }
+          return null;//  invalid index (out of bounds) }
+          } else { 
           return tree[(i - 1) / 2]; // Parent node is at index (i - 1) / 2 } 
-
+      }}
 
     // Method to get the left child of the node at index i
     public E getLeftChild(int i) {
