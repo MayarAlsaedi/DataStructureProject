@@ -1,0 +1,43 @@
+/**
+ *
+ * @author Wehad
+ */
+public class BinaryMain {
+
+    public static void main(String[] args) {
+        // Create a binary tree with an initial capacity
+        BinaryTreeP<Integer> binaryTree = new BinaryTreeP<>(5);
+
+        // Insert values into the tree
+        binaryTree.insert(1);
+        binaryTree.insert(2);
+        binaryTree.insert(3);
+        binaryTree.insert(4);
+        binaryTree.insert(5);
+
+        // Print the size and capacity of the tree
+        System.out.println("Size of tree: " + binaryTree.getSize());
+        System.out.println("Capacity of tree: " + binaryTree.getCapacity());
+
+        // Perform different types of traversal
+        System.out.println("\nIn-Order Traversal:");
+        binaryTree.InOrdertraversal(0); // Start traversal from the root
+
+        System.out.println("\nPre-Order Traversal:");
+        binaryTree.PreOrdertraversal(0); // Start traversal from the root
+
+        System.out.println("\nPost-Order Traversal:");
+        binaryTree.PostOrdertraversal(0); // Start traversal from the root
+
+        // Test other methods
+        System.out.println("\nParent of index 2: " + binaryTree.getParent(2));
+        System.out.println("Left child of index 0: " + binaryTree.getLeftChild(0));
+        System.out.println("Right child of index 0: " + binaryTree.getRightChild(0));
+
+        // Attempt to insert a new element to test resizing
+        binaryTree.insert(6);
+        System.out.println("\nInserted new value (6).");
+        System.out.println("Size of tree: " + binaryTree.getSize());
+        System.out.println("Capacity of tree: " + binaryTree.getCapacity());
+    }
+}
