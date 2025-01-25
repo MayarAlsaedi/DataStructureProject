@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package binarytreep;
+import java.util.Arrays;
 
 /**
  *
@@ -89,5 +90,28 @@ public class BinaryTreeP<E> {
        System.out.println(tree[index]+ " "); 
        PreOrdertraversal(2 * index + 1); 
        PreOrdertraversal(2 * index + 2);
+
+// Method to resize the tree when capacity is exceeded
+    private void resize() {
+        int newCapacity = capacity * 2;  // Double the capacity
+        tree = Arrays.copyOf(tree, newCapacity);  // Copy elements to a new larger array
+        capacity = newCapacity;  // Update the capacity
+    }
+
+    // Method to safely insert an element into the tree
+    public void insert(E value) {
+        if (isFull()) {
+            resize(); // Resize the array if full
+        }
+        tree[size++] = value; // Add the value at the next available index
+    }
+
+    // Method to safely get an element with bounds checking
+    public E getElement(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+        return tree[index];
     }
 }
+
