@@ -69,7 +69,7 @@ public class BinaryTreeP<E> {
 
 // in-order traversal
     private void InOrdertraversal(int index) {
-        if(index >= size || tree[index]== null)return;
+        if(index >= size || tree[index]== null) return;
         InOrdertraversal(2* index +1);
         System.out.println(tree[index]+ " ");
         InOrdertraversal(2* index +2);
