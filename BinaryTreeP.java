@@ -86,7 +86,7 @@ public class BinaryTreeP<E> {
     // pre-order traversal
     public void PreOrdertraversal(int index) {
        if (index >= size || tree[index] == null) return;
-       System.out.println(tree[index]+ " "); 
+       System.out.print(tree[index]+ " "); 
        PreOrdertraversal(2 * index + 1); 
        PreOrdertraversal(2 * index + 2);
     }
